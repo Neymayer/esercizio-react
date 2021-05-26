@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Header />
       <Items>
-        <p>prova</p>
+        <p>prova2</p>
         <Card
           img="/images/item1.png"
           title="Ray-Ban Wayfarer"
