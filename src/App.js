@@ -3,14 +3,26 @@ import Header from './components/Header';
 import Card from './components/Card';
 import Card2 from './components/Card2';
 import styled from "styled-components";
-import Footer from './components/Footer';
+import { useState } from "react";
+import GlassesStore from "./Negozio/GlassesStore";
+import CartList from "./Negozio/CartList";
+
 
 function App() {
+  const [screen, setScreen] = useState(0);
+
+  const setView = (scr) => {
+    setScreen(scr);
+  };
+  
   return (
+    <>
+      <div className="App">
+        {screen == 1 && <CartList setScreen={setView} />}
+      </div>
     <div className="App">
       <Header />
       <Items>
-        <p>prova2</p>
         <Card
           img="/images/item1.png"
           title="Ray-Ban Wayfarer"
@@ -47,9 +59,11 @@ function App() {
           price="€ 150,90"
         />
       </Items>
-      <Footer />
     </div>
+    {screen == 0 && <GlassesStore setScreen={setView} />}
+    </>
   );
+
 }
 
 export default App;
